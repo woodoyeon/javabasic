@@ -8,20 +8,33 @@ public class DoYeonBookMarket {
     static final int Num_MENU = 4;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        
+    	// 우선 스캐너를통해서 메뉴순서를  입력 받습니다.
+    	Scanner scanner = new Scanner(System.in);
+       
+        // Arr 을 이용해 북리스트를 만든다.
         ArrayList<Book> bookList = new ArrayList<>();
+        
+        // Arr 을 이용해 카트리스트를 만든다.
         ArrayList<Book> cart = new ArrayList<>();
+        
+        //
         boolean isRunning = true;
 
-        // 초기 책 목록
+        // bookList에 책을 추가합니다.
         bookList.add(new Book("ID2401", "쉽게 배우는 자바 프로그래밍 2판", "우종정", "한빛아카데미", 20000));
         bookList.add(new Book("ID2402", "코딩 자율학습 HTML+CSS+자바스크립트", "김기수", "길벗", 30000));
         bookList.add(new Book("ID2403", "Do It! 자료구조와 함께 배우는 알고리즘 입문 - 자바편", "보요시바타", "이지스퍼블리싱", 25000));
 
+        
+        //  환영인사 메세지를 출력합니다.
         System.out.println("*****************************************");
         System.out.println("* Welcome to DoYeon Book Market *");
         System.out.println("*****************************************");
 
+        
+        //  boolean isRunning = true;  이 문구를 while로 실행합니다.
+        // while 은 무한반복입니다.
         while (isRunning) {
             // 메뉴 출력
             System.out.println("\n메인 메뉴");
@@ -34,7 +47,7 @@ public class DoYeonBookMarket {
             System.out.println("=========================================");
             System.out.print(">> 메뉴 선택 : ");
 
-            // 사용자 입력 받기
+            // 스캐너를 통해서 사용자 입력 받기
             int choice = scanner.nextInt();
 
             // 선택에 따른 동작 수행
@@ -64,7 +77,9 @@ public class DoYeonBookMarket {
         scanner.close();
     }
 
-    // 도서 목록 출력
+    
+    // 여기 위까지가 메인 실행문이고 아래부터가 메서드이다.
+    // 도서 목록 메서드이다
     static void printBookList(ArrayList<Book> bookList) {
         System.out.println("\n>> 도서 목록");
         System.out.println("------------------------------------------------------------------------");
@@ -150,10 +165,8 @@ class Book {
         return price;
     }
 
-    @Override
+    
     public String toString() {
         return id + ", " + title + ", " + author + ", " + publisher + ", " + price + "원";
     }
 }
-
-
